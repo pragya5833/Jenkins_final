@@ -8,7 +8,7 @@ job('Ansible_DSL'){
             }
     steps{
         wrappers{
-            colorizeOutput(colormap,'xterm')
+            colorizeOutput(colorMap='xterm')
             ansiblePlaybook('/tmp/play.yml'){
                 inventory('/tmp/hosts')
                 colorizedOutput(true)
