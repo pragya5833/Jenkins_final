@@ -1,0 +1,59 @@
+version: '3'
+services:
+  jenkins:
+    container_name: 'jenkins_final'
+    image: 'jenkins-ansible-docker'
+    build:
+      context: '/home/shav/Desktop/pipeline'
+      dockerfile: Dockerfile.dev
+    ports:
+    - "8002:8080"
+    networks:
+      - net
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+  remote_host:
+    container_name: 'remote_host_final'
+    build:
+      context: '/home/shav/Desktop/pipeline'
+      dockerfile: Dockerfile
+    networks:
+      - net
+    volumes:
+      - ./script.sh:/tmp/script.sh
+  db_host:
+    container_name: 'db_final'
+    image: 'mysql:5.7'
+    environment:
+    - MYSQL_ROOT_PASSWORD=1234
+    networks:
+      - net
+    volumes:
+      - .:/app
+  # web:
+  #   container_name: 'web'
+  #   image: 'nginxweb'
+  #   build:
+  #     context: '/home/shav/questionmaker/jenkins/web/Dockerfile'
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - net
+  # git:
+  #   container_name: 'git_server'
+  #   image: 'gitlab/gitlab-ce:latest'
+  #   hostname: 'gitlab.example.com'
+  #   ports:
+  #     - '8000:80'
+  #   volumes:
+  #     - '/home/shav/questionmaker/jenkins/git:/etc/gitlab'
+  #     - '/home/shav/questionmaker/jenkins/git:/var/log/gitlab'
+  #     - '/home/shav/questionmaker/jenkins/git:/var/opt/gitlab'
+  #   networks:
+  #     - net
+networks:
+  net:
+
+
+
