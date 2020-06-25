@@ -1,4 +1,4 @@
-Job('Ansible_DSL'){
+job('Ansible_DSL'){
     description('check ansible')
     params{
         stringParam('command',('ls -l (default)'))
