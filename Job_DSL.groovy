@@ -9,6 +9,7 @@ job('Ansible_DSL'){
     steps{
         wrappers{
             colorizeOutput(colorMap='xterm')
+        }
             ansiblePlaybook('/tmp/play.yml'){
                 inventory('/tmp/hosts')
                 colorizedOutput(true)
@@ -17,7 +18,7 @@ job('Ansible_DSL'){
                 }
             }
         }
-    }
+    
     publishers{
         mailer('shavinder.g@gmail.com',true,true)
     }
