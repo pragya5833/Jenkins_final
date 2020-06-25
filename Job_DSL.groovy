@@ -1,6 +1,6 @@
 job('Ansible_DSL'){
     description('check ansible')
-    params{
+    parameters{
         stringParam('command',('ls -l (default)'))
     }
     scm{
