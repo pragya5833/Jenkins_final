@@ -3,9 +3,9 @@ job('Ansible_DSL'){
     parameters{
         stringParam('command',('ls -l (default)'))
     }
-    scm{
-        git('https://github.com/pragya5833/Jenkins_final.git','master')
-            }
+    // scm{
+    //     git('https://github.com/pragya5833/Jenkins_final.git','master')
+    //         }
     steps{
         wrappers{
             colorizeOutput(colorMap='xterm')
