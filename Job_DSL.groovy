@@ -5,6 +5,7 @@ Job('Ansible_DSL'){
     }
     scm{
         git('https://github.com/pragya5833/Jenkins_final.git','master')
+        credentials(git)
     }
     steps{
         wrappers{
