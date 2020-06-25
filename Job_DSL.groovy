@@ -11,14 +11,14 @@ job('Ansible_DSL'){
             colorizeOutput(colorMap='xterm')
         }
             ansiblePlaybook('/tmp/play.yml'){
-                inventory('/tmp/hosts')
+                inventoryPath('/tmp/hosts')
                 colorizedOutput(true)
                 extraVars{
                     extraVar('user_give','${command}',false)
                 }
             }
         }
-    
+
     publishers{
         mailer('shavinder.g@gmail.com',true,true)
     }
