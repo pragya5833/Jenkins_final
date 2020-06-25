@@ -18,4 +18,7 @@ Job('Ansible_DSL'){
             }
         }
     }
+    publishers{
+        mailer('shavinder.g@gmail.com',true,true)
+    }
 }
